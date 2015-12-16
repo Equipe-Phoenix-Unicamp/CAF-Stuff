@@ -1,9 +1,9 @@
+#include "pins.h"
+#include "Arduino.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-#include "pins.h"
-#include "Arduino.h"
 
 void configuraMotores()
 {
@@ -22,7 +22,7 @@ void potenciaMotorDireito(int potencia)
 	int direction = potencia>0?HIGH:LOW;
 	int pwm = potencia<0?-potencia:potencia;
 	analogWrite(PWMD,pwm);
-	digitalWrite(DIRECTIONR, direction);
+	digitalWrite(DIRECTIOND, direction);
 }
 
 void potenciaMotorEsquerdo(int potencia)
