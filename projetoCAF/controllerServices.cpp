@@ -11,6 +11,7 @@ IMPORTANTE: PullUp no pino dos dados!
 Equipe Phoenix de Robótica da Unicamp
 ***************************************************************************/
 
+#include "controllerServices.h"
 #include "pins.h"
 #include "Arduino.h"
 
@@ -115,3 +116,11 @@ int lerAnalogicoDireito(void)
     delayMicroseconds(20);
 	return psxDado[3];
 }
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+	
+#ifdef __cplusplus
+}
+#endif
