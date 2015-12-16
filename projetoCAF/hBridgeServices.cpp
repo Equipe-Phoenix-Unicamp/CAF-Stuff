@@ -3,6 +3,7 @@ extern "C" {
 #endif
 
 #include "pins.h"
+#include "Arduino.h"
 
 void configuraMotores()
 {

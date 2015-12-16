@@ -12,6 +12,7 @@ Equipe Phoenix de Robótica da Unicamp
 ***************************************************************************/
 
 #include "pins.h"
+#include "Arduino.h"
 
 #define tempoInicio     20
 #define tempoClk        20
