@@ -14,10 +14,11 @@ void configurarRadio(char modo)
 	if ( modo == TRANSMISSOR )
     {
     	radio.openWritingPipe(pipes[0]);
-    }	
+    }
     else
     {
     	radio.openReadingPipe(1,pipes[1]);
+		radio.startListening();
     }
 }
 void enviarPotencias(int potenciaDireita,int potenciaEsquerda)
@@ -33,7 +34,6 @@ int lerPotDir(void)
 	while ( ! radio.available() );
 	if ( radio.available() )
     {
-		radio.startListening();
 		radio.read( &velo, 2*sizeof(int) );
 		radio.stopListening();
 	}
@@ -45,10 +45,9 @@ int lerPotEsq(void)
 	while ( ! radio.available() );
 	if ( radio.available() )
     {
-		radio.startListening();
 		radio.read( &velo, 2*sizeof(int) );
 		radio.stopListening();
 	}
 	return velo[0];
-}	
+}
 
