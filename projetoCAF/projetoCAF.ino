@@ -7,14 +7,12 @@
 
 void setup()
 {
-	Serial.begin(9600);
 	configurarRadio(RECEPTOR);
 	configurarControle();
+	configuraMotores();
 }
 void loop()
 {
-	int a = lerAnalogicoDireito();
-	Serial.println(a);
-	delay(10);
+	potenciaMotorDireito(200);
 }
 

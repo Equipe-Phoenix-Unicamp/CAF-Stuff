@@ -2,7 +2,7 @@
 #include "pins.h"
 #include "Arduino.h"
 
-void configuraMotores()
+void configuraMotores(void)
 {
     pinMode(PWME,INPUT);
     pinMode(PWMD,INPUT);
