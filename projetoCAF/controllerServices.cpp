@@ -1,16 +1,3 @@
-/***************************************************************************
-Código criado para testes, salvo para documentação e referências futuras.
-
-Versão oficial, comentada e melhor documentada será upada assim que pronta.
-Fonte: http://microcontrolado.com/controle-playstation-no-pic-2/
-
-
-Testado com : Controles do PSX e PS2
-IMPORTANTE: PullUp no pino dos dados!
-
-Equipe Phoenix de Robótica da Unicamp
-***************************************************************************/
-
 #include "controllerServices.h"
 #include "pins.h"
 #include "Arduino.h"
@@ -27,12 +14,11 @@ int psxCont;
 
 boolean estado = 0;
  
-void psxLeControle();
+void psxLeControle(void);
 void psxGravaByte(int byteDado);
-int psxLeByte();
-int contprint;
+int psxLeByte(void);
 
-void psxLeControle()
+void psxLeControle(void)
 {
   int psxByte = 0;
   
@@ -76,7 +62,7 @@ void psxGravaByte(int byteDado)
   delayMicroseconds(tempoEntreByte);
 }
 
-int psxLeByte()
+int psxLeByte(void)
 {
   int aux = 0;
   int c;
@@ -102,13 +88,13 @@ void configurarControle(void)
     pinMode(cmd,OUTPUT);
     pinMode(att,OUTPUT);
     pinMode(clk,OUTPUT);
-    pinMode(dado,INPUT);
+    pinMode(dado,INPUT_PULLUP);
 }
 int lerAnalogicoEsquerdo(void)
 {
     psxLeControle();
     delayMicroseconds(20);
-	return psxDado[4];
+	return psxDado[5];
 }
 int lerAnalogicoDireito(void)
 {
@@ -116,11 +102,3 @@ int lerAnalogicoDireito(void)
     delayMicroseconds(20);
 	return psxDado[3];
 }
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-	
-#ifdef __cplusplus
-}
-#endif

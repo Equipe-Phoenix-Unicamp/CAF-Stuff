@@ -9,19 +9,19 @@
 4 - Contr
 5 - H
 6 - H
-7 - Transcep
-8 - Transcep
-9 - Contr
-10 - Contr
+7 - Contr
+8 - Contr
+9 - Transcep 
+10 - Transcep 
 11 - Transcep
 12 - Transcep
 13 - Transcep
 */
 
 
-#define cmd	9    // Laranja        
+#define cmd	7    // Laranja        
 #define att	4   // Amarelo     
-#define clk	10   // Azul
+#define clk	8   // Azul
 #define dado	A0    // Marrom
 
 #define PWME	6

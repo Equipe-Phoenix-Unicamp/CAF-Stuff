@@ -5,16 +5,15 @@
 #include "hBridgeServices.h"
 #include "controllerServices.h"
 
-int msgg[1];
 void setup()
 {
 	Serial.begin(9600);
-	pinMode(A1,OUTPUT);
 	configurarRadio(RECEPTOR);
+	configurarControle();
 }
 void loop()
 {
-	int a = lerPotDir();
+	int a = lerAnalogicoDireito();
 	Serial.println(a);
 	delay(10);
 }
