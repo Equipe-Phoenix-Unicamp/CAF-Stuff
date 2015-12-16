@@ -1,0 +1,1 @@
+void potenciaMotor(int potencia);
