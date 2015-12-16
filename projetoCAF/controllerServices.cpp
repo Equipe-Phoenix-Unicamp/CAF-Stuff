@@ -10,17 +10,13 @@ IMPORTANTE: PullUp no pino dos dados!
 
 Equipe Phoenix de Robótica da Unicamp
 ***************************************************************************/
-#define cmd           9    // Laranja        
-#define att           11   // Amarelo     
-#define clk           10   // Azul
-#define dado          A0    // Marrom
+
+#include "pins.h"
 
 #define tempoInicio     20
 #define tempoClk        20
 #define tempoEntreByte  20
 #define tempoEntreCiclo 40
-
-#define LED_STATUS 2
 
 int psxDado[6]; 
 int psxMudou;
@@ -33,31 +29,6 @@ void psxLeControle();
 void psxGravaByte(int byteDado);
 int psxLeByte();
 int contprint;
- 
-void setup() {
-  Serial.begin(9600); 
-  while (!Serial) {
-    ;
-  }
-  pinMode(cmd,OUTPUT);
-  pinMode(att,OUTPUT);
-  pinMode(clk,OUTPUT);
-  pinMode(dado,INPUT);
-  pinMode(LED_STATUS,OUTPUT);  
-}
-
-void loop() {
-  psxLeControle();
-  delayMicroseconds(20);
-  estado = !estado;
-  digitalWrite(LED_STATUS,estado);
-  for (contprint = 0; contprint<6;contprint++)
-  {
-      Serial.print(psxDado[contprint]);
-      Serial.print('N');     
-  }
-  Serial.println();
-}
 
 void psxLeControle()
 {
@@ -124,6 +95,25 @@ int psxLeByte()
   return (aux);
 }
 
+void configurarControle(void)
+{
+    pinMode(cmd,OUTPUT);
+    pinMode(att,OUTPUT);
+    pinMode(clk,OUTPUT);
+    pinMode(dado,INPUT);
+}
+int lerAnalogicoEsquerdo(void)
+{
+    psxLeControle();
+    delayMicroseconds(20);
+	return psxDado[4];
+}
+int lerAnalogicoDireito(void)
+{
+    psxLeControle();
+    delayMicroseconds(20);
+	return psxDado[3];
+}
 
 #ifdef __cplusplus
 extern "C" {

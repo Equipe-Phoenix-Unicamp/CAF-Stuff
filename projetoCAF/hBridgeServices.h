@@ -1,6 +1,7 @@
 #ifndef HBRIDGE_H
 #define HBRIDGE_H
 
-void potenciaMotor(int potencia);
+void potenciaMotorDireito(int potencia);
+void potenciaMotorEsquerdo(int potencia);
 
 #endif //HBRIDGE_H
