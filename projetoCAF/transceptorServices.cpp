@@ -1,14 +1,12 @@
-#include "transceptorService.h"
-#include "Arduino.h"
+#include "transceptorServices.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include "nRF24L01.h"
+#include "RF24.h"
+RF24 radio(9,10);
 
 void configurarRadio(char modo)
 {
 	uint64_t pipes[2] = { 0xF0F0F0F0E1LL, 0xF0F0F0F0D2LL };
-	RF24 radio(9,10);
 	radio.begin();
 	radio.setRetries(15,15);
 	if ( modo == TRANSMISSOR )
@@ -39,7 +37,7 @@ int lerPotDir(void)
 	}
 	return velo[1];
 }
-int lerPotEsq(void);
+int lerPotEsq(void)
 {
 	int velo[2];
 	while ( ! radio.available() );
@@ -51,6 +49,4 @@ int lerPotEsq(void);
 	}
 	return velo[0];
 }	
-#ifdef __cplusplus
-}
-#endif
+

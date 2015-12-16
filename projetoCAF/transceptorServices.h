@@ -1,5 +1,3 @@
-#include <SPI.h>
-
 #ifndef TRANSCEPTOR_H
 #define TRANSCEPTOR_H
 

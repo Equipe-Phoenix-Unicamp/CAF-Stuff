@@ -1,10 +1,6 @@
 #include "pins.h"
 #include "Arduino.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 void configuraMotores()
 {
     pinMode(PWME,INPUT);
@@ -33,6 +29,3 @@ void potenciaMotorEsquerdo(int potencia)
 	digitalWrite(DIRECTIONE, direction);
 }
 	
-#ifdef __cplusplus
-}
-#endif

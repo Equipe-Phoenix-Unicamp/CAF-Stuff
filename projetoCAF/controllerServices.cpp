@@ -115,11 +115,3 @@ int lerAnalogicoDireito(void)
     delayMicroseconds(20);
 	return psxDado[3];
 }
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-	
-#ifdef __cplusplus
-}
-#endif
