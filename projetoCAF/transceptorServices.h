@@ -3,15 +3,13 @@
 
 #include <Arduino.h>
 #include  <SPI.h>
-#include "nRF24L01.h"
-#include "RF24.h"
-
+#include "Nrf2401.h"
 
 #define RECEPTOR 'r'
 #define TRANSMISSOR 'e'
 
 
-extern RF24 radio;
+extern Nrf2401 Radio;
 void configurarRadio(char modo);
 void enviarPotencias(int potenciaDireita,int potenciaEsquerda);
 int lerPotDir(void);
