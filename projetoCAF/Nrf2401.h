@@ -15,11 +15,11 @@
  *  For documentation on how to use this library, please visit http://www.arduino.cc/playground/Main/InterfacingWithHardware
  *  Pin connections should be as follows for Arduino:
  *
- *  DR1 = 7
- *  CE  = 8
- *  CS  = 11
- *  CLK = 12
- *  DAT = 13
+ *  DR1 = 2  (digital pin 2)
+ *  CE  = 3
+ *  CS  = 4
+ *  CLK = 5
+ *  DAT = 6
  *
  */
 
@@ -28,11 +28,11 @@
 
 #define NRF2401_BUFFER_SIZE 25
 
-#define DR1 128
-#define CE  256
-#define CS  2048
-#define CLK 4096
-#define DAT 8192
+#define DR1 4
+#define CE  8
+#define CS  16
+#define CLK 32
+#define DAT 64
 
 #define SELECT_CHIP   PORTD |= CS
 #define DESELECT_CHIP PORTD &= ~CS
