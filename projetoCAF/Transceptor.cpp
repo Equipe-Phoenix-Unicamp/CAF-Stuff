@@ -20,7 +20,7 @@ void emite(int valor1, int valor2)
   Radio.data[1] = valor2;
   Radio.data[2] = 0;
   Radio.write(); 
-  delay(200);
+  delay(30);
 }
 
 int lerAnalogDir()

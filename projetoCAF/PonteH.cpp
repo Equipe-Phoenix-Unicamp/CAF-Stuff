@@ -4,8 +4,8 @@
 
 void configuraMotores(void)
 {
-    pinMode(PWME,INPUT);
-    pinMode(PWMD,INPUT);
+    pinMode(PWME,OUTPUT);
+    pinMode(PWMD,OUTPUT);
 	  pinMode(DIRECTIONE,OUTPUT);
     pinMode(DIRECTIOND,OUTPUT);
 	  pinMode(ENABLE,OUTPUT);
@@ -16,65 +16,64 @@ void configuraMotores(void)
 
 void potenciaMotorDireito(int potencia)
 {
-  int direction;
-  int pwm;
+  int dir;
+  float pwm;
   
-  if(digitalRead(ERR))
-  {
     if(potencia > 150)
     {
-	    direction = HIGH;
-      pwm = int((potencia - 125) * 1.5);
+	    dir = HIGH;
+      pwm = (potencia - 125) * 1.3;
     }
     else if(potencia < 100)
     {
-      direction = LOW;
-      pwm = int((125 - potencia) * 1.5);
+      dir = LOW;
+      pwm = (125 - potencia) * 1.3;
     }
     else
     {
       pwm = 0;
     }
-    analogWrite(PWMD,pwm);
-    digitalWrite(DIRECTIOND, direction);
-  }
-  else
-  {
-    digitalWrite(ENABLE, LOW);
-    delay(100);
-    digitalWrite(ENABLE, HIGH);
-  }
+
+    if(!digitalRead(ERR))
+    {
+      digitalWrite(ENABLE, LOW);
+      delay(100);
+      digitalWrite(ENABLE, HIGH);
+    }
+    
+    analogWrite(PWMD,int(pwm));
+    digitalWrite(DIRECTIOND, dir);
+    
 }
 
 void potenciaMotorEsquerdo(int potencia)
 {
-  int direction;
-  int pwm;
+  int dir;
+  float pwm;
   
-  if(digitalRead(ERR))
-  {
     if(potencia > 150)
     {
-      direction = LOW;
-      pwm = int((potencia - 125) * 1.5);
+      dir = LOW;
+      pwm = (potencia - 125) * 1.3;
     }
     else if(potencia < 100)
     {
-      direction = HIGH;
-      pwm = int((125 - potencia) * 1.5);
+      dir = HIGH;
+      pwm = (125 - potencia) * 1.3;
     }
     else
     {
       pwm = 0;
     }
-    analogWrite(PWMD,pwm);
-    digitalWrite(DIRECTIOND, direction);
-  }
-  else
-  {
-    digitalWrite(ENABLE, LOW);
-    delay(100);
-    digitalWrite(ENABLE, HIGH);
-  }
+
+    if(!digitalRead(ERR))
+    {
+      digitalWrite(ENABLE, LOW);
+      delay(100);
+      digitalWrite(ENABLE, HIGH);
+    }
+    Serial.println(pwm);
+    analogWrite(PWME,int(pwm));
+    digitalWrite(DIRECTIONE, dir);
 }
 	

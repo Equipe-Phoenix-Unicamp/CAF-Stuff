@@ -18,6 +18,13 @@
 13 - Transcep
 */
 
+/*
+ *  DR1 = 2  (digital pin 2)
+ *  CE  = 3
+ *  CS  = 4
+ *  CLK = 5
+ *  DAT = 6
+ */
 
 #define cmd	7    // Laranja        
 #define att	13   // Amarelo     
