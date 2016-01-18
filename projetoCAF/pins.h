@@ -31,9 +31,9 @@
 #define clk	8   // Azul
 #define dado	A0    // Marrom
 
-#define PWME	8
+#define ENABLE  8
 #define PWMD	9
-#define ENABLE	10
+#define PWME  10
 #define ERR	11
 #define DIRECTIONE	12
 #define DIRECTIOND	13

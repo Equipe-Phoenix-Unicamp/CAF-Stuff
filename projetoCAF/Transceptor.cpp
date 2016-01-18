@@ -23,6 +23,17 @@ void emite(int valor1, int valor2)
   delay(30);
 }
 
+int receptor_disponivel()
+{
+  int disponivel = 0;
+  if(Radio.available())
+    disponivel = 1;
+  else
+    disponivel = 0;
+
+  return disponivel;    
+}
+
 int lerAnalogDir()
 {
   while(!Radio.available());

@@ -21,12 +21,12 @@ void potenciaMotorDireito(int potencia)
   
     if(potencia > 150)
     {
-	    dir = HIGH;
+	    dir = LOW;
       pwm = (potencia - 125) * 1.3;
     }
     else if(potencia < 100)
     {
-      dir = LOW;
+      dir = HIGH;
       pwm = (125 - potencia) * 1.3;
     }
     else

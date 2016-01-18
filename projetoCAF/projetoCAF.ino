@@ -19,19 +19,20 @@ void loop(void)
 {
   int analog_dir;
   int analog_esq;
-  analog_esq = lerAnalogEsq();
-  analog_dir = lerAnalogDir();
-  Serial.print(analog_esq);
-  Serial.print(" , ");
-  Serial.print(analog_dir);
-  Serial.print("\n");
-  potenciaMotorDireito(analog_dir);
-  potenciaMotorEsquerdo(analog_esq);
+  
+  if(receptor_disponivel())
+  {
+    analog_esq = lerAnalogEsq();
+    analog_dir = lerAnalogDir();
+    potenciaMotorDireito(analog_dir);
+    potenciaMotorEsquerdo(analog_esq);
+  }
+  
 }
 
 
-
-/*void setup(void)
+/*
+void setup(void)
 {
   configura_emissor();
   configurarControle();

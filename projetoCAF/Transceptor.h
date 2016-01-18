@@ -2,12 +2,13 @@
 #define TRANSCEPTORES_H
 
 #include <Arduino.h>
-#include  <SPI.h>
+//#include  <SPI.h>
 #include "Nrf2401.h"
 
 extern Nrf2401 Radio;
 void configura_receptor();
 void configura_emissor();
+int receptor_disponivel();
 void emite(int valor1, int valor2);
 int lerAnalogDir();
 int lerAnalogEsq();
